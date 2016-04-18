@@ -50,7 +50,7 @@ public class IndexResource implements RequestHandler<ByteBuf, ByteBuf>{
                     @Override
                     public Observable<Void> call(String body) {
                         String instanceId = "";
-                        String userdata = "";
+                        String dateId = "";
 
                         try{
                             instanceId = execCmd("curl http://metadata/computeMetadata/v1/instance/id -H Metadata-Flavor:Google") + execCmd("wget -q -O - http://instance-data/latest/meta-data/instance-id");
