@@ -54,12 +54,12 @@ public class IndexResource implements RequestHandler<ByteBuf, ByteBuf>{
 
                         try{
                             instanceId = execCmd("curl http://metadata/computeMetadata/v1/instance/id -H Metadata-Flavor:Google") + execCmd("wget -q -O - http://instance-data/latest/meta-data/instance-id");
-                            date = System.getenv("date");
+                            dateId = System.getenv("date");
 
                         } catch (Exception e){
                             e.printStackTrace();
                         }
-                        response.writeString("<html><head><style>body{text-align:center;font-family:'Lucida Grande'}</style></head><body><img src='http://kenzan.com/wp-content/themes/kenzan/images/logo-reg.png' /><h2>Example Spinnaker Application</h2><h3>Instance Id " + instanceId + "</h3><h3>Date" + date + "</h3></body></html>");
+                        response.writeString("<html><head><style>body{text-align:center;font-family:'Lucida Grande'}</style></head><body><img src='http://kenzan.com/wp-content/themes/kenzan/images/logo-reg.png' /><h2>Example Spinnaker Application</h2><h3>Instance Id " + instanceId + "</h3><h3>Date" + dateId + "</h3></body></html>");
                         return response.close();
                     }
                 });
